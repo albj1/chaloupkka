@@ -1,0 +1,14 @@
+{
+  "name": "chaloupkka",
+  "version": "1.0.0",
+  "description": "Podstávková chalupa u Plešivce",
+  "private": true,
+  "scripts": {
+    "build": "echo 'Static HTML site - no build needed'",
+    "lint": "echo 'No linter configured for static HTML'",
+    "test": "echo 'No tests configured'"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}
