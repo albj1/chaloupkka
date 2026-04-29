@@ -280,7 +280,7 @@
         <!-- Galerie -->
         <div class="carousel" id="carousel" aria-label="Fotogalerie chalupy">
           <button class="arrow prev" aria-label="Předchozí fotografie">‹</button>
-          <img id="carousel-img" src="imagesgal1.jpg" alt="Fotka chalupy – 1/13" loading="eager">
+          <img id="carousel-img" src="imagesgal1.jpg" alt="Fotka chalupy – 1/15" loading="eager">
           <button class="arrow next" aria-label="Další fotografie">›</button>
         </div>
       </div>
@@ -535,14 +535,14 @@ Start u Restaurace ve Vlčí Hoře (1). Po žluté a Koglerově stezce (2) mezi 
 
     // Hlavní carousel
     (function(){
-      const photos = Array.from({length:13}, (_,i)=>`imagesgal${i+1}.jpg`);
+      const photos = Array.from({length:15}, (_,i)=>`imagesgal${i+1}.jpg`);
       let i = 0, timer=null;
       const img = document.getElementById('carousel-img');
       const box = document.getElementById('carousel');
       function show(n){
         i = (n + photos.length) % photos.length;
         img.classList.add('fade');
-        setTimeout(()=>{ img.src = photos[i]; img.alt = `Fotka chalupy – ${i+1}/13`; img.classList.remove('fade'); }, 150);
+        setTimeout(()=>{ img.src = photos[i]; img.alt = `Fotka chalupy – ${i+1}/15`; img.classList.remove('fade'); }, 150);
       }
       function start(){ stop(); timer = setInterval(()=> show(i+1), 4000); }
       function stop(){ if(timer){ clearInterval(timer); timer=null; } }
