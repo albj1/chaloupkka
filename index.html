@@ -34,6 +34,7 @@
     a{color:var(--accent);text-decoration:none}
     a:hover{opacity:.9}
 
+    /* Nav */
     .nav{
       position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:50;
       display:flex;gap:10px;align-items:center;padding:10px 14px;border-radius:999px;
@@ -76,6 +77,7 @@
     [data-theme="dark"] .toggle-thumb{ background:radial-gradient(100% 100% at 30% 30%, #0b0d10, #16181d 70%) }
     .theme-toggle.active .toggle-thumb{ transform: translateX(36px) }
 
+    /* Hero */
     .hero{position:relative;min-height:100vh;min-height:100svh;width:100%;overflow:hidden;}
     .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     .scrim{position:absolute;inset:0;background:radial-gradient(110% 70% at 50% 30%, rgba(0,0,0,.12), rgba(0,0,0,.55) 75%)}
@@ -85,6 +87,7 @@
     .headline p{color:#e7eef5;margin:0 auto 18px;max-width:820px;text-shadow:0 1px 12px rgba(0,0,0,.25)}
     .cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px}
 
+    /* Layout */
     section{padding:72px 18px}
     .wrap{max-width:1100px;margin:0 auto}
     .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
@@ -125,6 +128,7 @@
     footer{padding:36px 18px 54px;color:var(--muted)}
     .foot{max-width:1100px;margin:0 auto;display:grid;gap:10px;justify-items:center;text-align:center}
 
+    /* Trips overlay */
     .trips-overlay{
       position:fixed; inset:0; z-index:60; display:grid; grid-template-rows:auto 1fr;
       background: radial-gradient(1200px 800px at 20% -10%, rgba(14,165,183,.12), transparent 60%),
@@ -161,8 +165,13 @@
     .trip-detail .bigtext{ margin:0 0 12px; color:var(--muted); line-height:1.75; }
 
     .trip-photo{
-      border-radius:var(--radius); overflow:hidden; border:1px solid var(--glass-b);
-      box-shadow:var(--shadow); aspect-ratio:16/9; background:#fff; margin-top:10px;
+      border-radius:var(--radius);
+      overflow:hidden;
+      border:1px solid var(--glass-b);
+      box-shadow:var(--shadow);
+      aspect-ratio:16/9;
+      background:#fff;
+      margin-top:10px;
     }
     .trip-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
 
@@ -173,6 +182,7 @@
     .contact-map img{ display:block;width:100%;height:auto; transition:filter .2s ease, transform .2s ease; cursor:pointer; }
     .contact-map:hover img{ filter:brightness(1.03); transform:scale(1.002); }
 
+    /* Readmore */
     .readmore { max-height: 9999px; overflow: hidden; transition: max-height .36s ease; }
     .readmore.collapsed { max-height: 0; padding: 0; margin: 0; }
     .readmore-toggle {
@@ -184,6 +194,7 @@
 
     .sr-only{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 
+    /* Hero chip */
     .chip{
       display:inline-block;margin-bottom:14px;padding:.35rem 1rem;border-radius:999px;
       background:rgba(255,255,255,.15);backdrop-filter:blur(6px);
@@ -198,24 +209,27 @@
     .reviews-source a{ color:var(--accent); }
 
     .ticker-outer{
-      position:relative; width:100%; overflow:hidden; cursor:grab;
+      position:relative; width:100%; overflow:hidden;
       -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
       mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+      touch-action: pan-y; /* Povolí přirozené vertikální scrollování stránky */
     }
-    .ticker-outer.grabbing{ cursor:grabbing; }
+    
+    /* CSS animace odstraněna - posuv kompletně řídí JS pro perfektní smyčku */
     .ticker-track{
-      display:flex; gap:16px; width:max-content; will-change:transform;
+      display:flex; gap:16px; width:max-content;
+      will-change: transform;
     }
 
     .review-card{
-      flex: 0 0 320px; flex-shrink:0;
+      flex: 0 0 320px;
+      flex-shrink: 0;
       background:var(--card); border:1px solid var(--glass-b); border-radius:var(--radius);
       padding:20px 20px 16px; box-shadow:var(--shadow);
       display:flex; flex-direction:column; gap:10px;
       cursor:pointer;
       transition: box-shadow .25s ease, border-color .25s ease, transform .25s ease;
       text-decoration:none; color:inherit;
-      user-select:none; -webkit-user-select:none;
     }
     .review-card:hover{
       box-shadow: 0 0 0 2px var(--accent), var(--shadow);
@@ -235,6 +249,7 @@
       width:fit-content;
     }
 
+    /* ── Mobile nav ── */
     @media (max-width:700px){
       .nav{ gap:4px; padding:8px 10px; flex-wrap:nowrap; max-width:calc(100vw - 24px); }
       .nav a:not(.btn):not(:nth-child(-n+3)){ display:none; }
@@ -273,6 +288,7 @@
       Váš prohlížeč nepodporuje HTML5 video.
     </video>
     <div class="scrim"></div>
+
     <div class="hero-inner">
       <div class="headline">
         <div class="chip">Podstávková chalupa u Plešivce • Nová Chřibská</div>
@@ -284,6 +300,7 @@
         </div>
       </div>
     </div>
+
     <div class="scroll-transition" aria-hidden="true">
       <svg viewBox="0 0 1440 140" preserveAspectRatio="none" role="img">
         <defs>
@@ -519,6 +536,7 @@
               <div>Jiné možnosti pronájmu jsou možné po vzájemné domluvě.</div>
             </div>
           </div>
+
           <div class="card">
             <h3>Obsazené termíny</h3>
             <div class="list">
@@ -575,211 +593,183 @@
             <p class="bigtext">Jednoduchá procházka z chalupy do Doubice. Louky, rybníček a dětské hřiště u Staré hospody. ~1 h 15 min se zastávkami.</p>
             <figure class="trip-photo"><img src="doubice.jpg" alt="Doubice"></figure>
             <div class="readmore collapsed">
-Cílem cesty se stala Stará Hospoda v Doubici, kde se mohou vyřádit naše pořád energií nabité děti. Od chalupy jsme se vydali dolů pár metrů po silnici směrem k odbočce (1). Zde jsme sešli na málo frekventovanou silnici mezi starými domky, chatkami a pensionem Braun. Kousek za pensionem mezi domky silnice odbočuje vlevo (2). Prošli jsme kolem malého rybníčka na pravé straně a pomalu přišli k dřevěnému rozcestníku, kde jedna šipka ukazuje někam na Doubici (3). Přesně podle šipky jsme se vydaly do štěrkové cestě do kopce směřující k oplocené chaloupce a zde také cesta končí (4). Vydali jsme se kolem plotu (5) a došli na louku nad zahradou. Zde jsme po vyšlapané cestičce přišli na pomalu se objevující začátek cesty (6), která vede až na silnici. Okolo bodu (7) jsme sešli z cesty směrem vlevo nahoru po vyšlapané cestě a prošli jsme mezi chalupami až na silnici (8). Pokud nesejdete, cesta se za nedlouho napojí na silnici také. Pak už jen krásným lesem po silnici až do Doubice. Cestu jsme si ještě zkrátili přes louku na turistické odbočce ke kapličce v poli (9) a už jsme byli u cíle. Děti si spokojeně hrály v parku a my popíjeli kafíčko. Celá cesta se zastávkami trvala přibližně 1 h 15 min.
+              Cílem cesty se stala Stará Hospoda v Doubici, kde se mohou vyřádit naše pořád energií nabité děti. Od chalupy jsme se vydali dolů pár metrů po silnici směrem k odbočce (1). Zde jsme sešli na málo frekventovanou silnici mezi starými domky, chatkami a pensionem Braun. Kousek za pensionem mezi domky silnice odbočuje vlevo (2). Prošli jsme kolem malého rybníčka na pravé straně a pomalu přišli k dřevěnému dětskému hřišti.
             </div>
-            <button class="readmore-toggle" aria-expanded="false">Číst více</button>
-            <p style="margin-top:8px;"><a class="btn ghost" href="https://mapy.com/cs/turisticka?vlastni-body&x=14.4606114&y=50.8861923&z=17&ut=Rozcestí%20z%20hlavní%20silnice&ut=Rozcestí%20mezi%20baráčky&ut=Rozcestí%20u%20dřevěného%20rozcestníku&ut=Podél%20plotu%20chaloupky&ut=Podél%20plotu%20chaloupky&ut=Přes%20louku%20na%20vznikající%20cestu&ut=Nahoru%20mezi%20chaloupky%20nebo%20po%20cestě%20na%20silnici&ut=Silnice%20Rybniště%20-%20Doubice&ut=Odbočka%20ke%20kapličce&ut=Přes%20louku%20k%20dřevěným%20sochám&uc=9hLeAxa8ddg-8hK4SNghAfjJW0NNSpg6NgR7g8g-hIXgYAaC9iJvfXdhAO&ud=50°52%275.767&quot;" target="_blank" rel="noopener">Otevřít trasu na Mapy.cz</a></p>
           </article>
-
-          <article class="trip-detail" id="plesivec">
-            <h3>Výlet okolo Plešivce</h3>
-            <p class="bigtext">Okružní trasa v okolí chalupy přes Malý Semerink a vyhlídky. Přibližně 10 km, ideální pro rodiny i středně zdatné turisty.</p>
-            <figure class="trip-photo"><img src="krajina.jpg" alt="Plešivec a okolí"></figure>
-            <div class="readmore collapsed">
-Okružní trasa začíná u chalupy a vede po silnici ke Chřibské. Za prvním domem odbočka vlevo (1), kolem domků a dolů ke koupališti (2). Pěšina za koupalištěm se napojuje na asfalt (3), dále přes žlutou značku mezi loukami (4). Stoupání vede k historickému střeleckému terči (5) a pak po vrstevnici k vyhlídce s lavičkou (7). Cesta se napojí zpět na žlutou (8), pokračuje na Malý Semerink (9) s možností občerstvení a vede přes silnici směrem na Rybniště (10). Poté lesními cestami k chalupě (11–15). Celkem cca 10 km.
-            </div>
-            <button class="readmore-toggle" aria-expanded="false">Číst více</button>
-            <p style="margin-top:8px;"><a class="btn ghost" href="https://mapy.com/cs/turisticka?vlastni-body&x=14.4856909&y=50.8687538&z=14&ut=Odbočka%20z%20hlavní%20silnice&ut=Odbočka%20na%20koupaliště&ut=Zase%20na%20silnici&ut=Odbočka%20vlevo%20mezi%20louky%20po%20žluté&ut=Střelecký%20terč&ut=Odbočka%20po%20vrstevnici&ut=Zde%20pomalu%20končí%20cesta&ut=Asi%20tady%20někde%20jsme%20se%20napojili%20zpět%20na%20žlutou&ut=Malý%20Semerink&ut=Po%20červené%20vlevo&ut=Zde%20sejít%20z%20červené%20a%20pokračovat%20vlevo%20podél%20silnice&ut=Odbočka%20ze%20silnice%20na%20Doubici&ut=Pomalý%20konec%20cesty%2C%20sejít%20po%20louce&ut=Už%20zase%20na%20asfaltu&ut=Zpět%20na%20hlavní%20k%20chaloupce&uc=9hKvBxaTBbYNGWflGfhvfAg4Rh4GfgRhV0f45gzGgsPhSngZw5D0h7YgrnJKdq8i5ne-1fkcfInfREN0f-1fX1eBW" target="_blank" rel="noopener">Otevřít trasu na Mapy.cz</a></p>
-          </article>
-
-          <article class="trip-detail" id="jedlova">
-            <h3>Výlet v okolí Jedlové</h3>
-            <p class="bigtext">Okruh z Jiřetína přes Křížovou horu a Jedlovou, krásné výhledy a možnost občerstvení. ~10 km.</p>
-            <figure class="trip-photo"><img src="jiretin1.jpg" alt="Jedlová (Jiřetín)"></figure>
-            <div class="readmore collapsed">
-Startujeme na náměstí v Jiřetíně (1). Po zelené nahoru na Křížovou horu (2) s výhledy. Pokračujeme po loukách k lesu (3) a po prudké sjezdovce (4) na Jedlovou. Cesta se stáčí kolem Jedlové a napojí se na asfalt (5). Sestupujeme z mírného kopce až k Ranči (6). Místo návratu po zelené pokračujeme po červené směrem pod Tolštejn, napojíme se na silnici (8) a jdeme zpět do Jiřetína (9–10). Výhledy, zmrzlina, cca 10 km.
-            </div>
-            <button class="readmore-toggle" aria-expanded="false">Číst více</button>
-            <p style="margin-top:8px;"><a class="btn ghost" href="https://mapy.com/cs/turisticka?vlastni-body&x=14.5757397&y=50.8711282&z=16&l=1&ut=Náměstí&ut=Křížová%20hora&ut=Vstup%20do%20lesa&ut=Hurá%20po%20sjezdovce&ut=Konečně%20nejvyšší%20bod&ut=U%20Ranče&ut=Na%20silnici%20pod%20Tolštejnem&ut=Mírně%20vlevo&ut=Zpět%20na%20hlavní&uc=9hYEIxaVzffL8ePPfNgeHJKNeYke39eF65NGfZUhtngycf61kDFFNhcD" target="_blank" rel="noopener">Otevřít trasu na Mapy.cz</a></p>
-          </article>
-
-          <article class="trip-detail" id="snezna">
-            <h3>Rododendrony Sněžná</h3>
-            <p class="bigtext">Jarní procházka arboretem a zahradami se spoustou rododendronů. Krátká, voňavá trasa vhodná pro focení.</p>
-            <figure class="trip-photo"><img src="arboretum16.jpg" alt="Rododendrony Sněžná"></figure>
-            <div class="readmore collapsed">
-Provoněný jarní výlet směřuje do nedaleké Sněžné, kde v květnu a začátkem června kvete nespočet rododendronů. Parkujeme u kapličky (1–2) a projdeme vstupem do arboreta. Krátká trasa, ideální pro rodiny a fotografy.
-            </div>
-            <button class="readmore-toggle" aria-expanded="false">Číst více</button>
-            <p style="margin-top:8px;"><a class="btn ghost" href="https://mapy.com/cs/zakladni?vlastni-body&x=14.4794085&y=50.9235309&z=16&ut=Rozcestí%20u%20kapličky&ut=Vchod%20do%20arboreta&uc=9hI8exak2cT1ecL" target="_blank" rel="noopener">Otevřít trasu na Mapy.cz</a></p>
-          </article>
-
-          <article class="trip-detail" id="varhany">
-            <h3>Měsíčnice & čedičové varhany (Zlatý vrch)</h3>
-            <p class="bigtext">Výlet k vzácné měsíčnici a k monumentálním čedičovým varhanám—výborné v květnu. ~8 km.</p>
-            <figure class="trip-photo"><img src="varhany.jpg" alt="Zlatý vrch – čedičové varhany"></figure>
-            <div class="readmore collapsed">
-Začínáme na Křížovém Buku (1). Přes asfaltovou lesní cestu dorazíme k oplocené rezervaci s měsíčnicí (2). Po prohlídce pokračujeme přes rozcestí Trajek (4), poté prudce po modré do kopce a po otevření lesa se naskytnou krásné výhledy (5). Pokračujeme na červenou, projdeme obcí Líska po červené až k odbočce na Zlatý vrch a čedičové varhany (7–8). Návrat po stejné trase.
-            </div>
-            <button class="readmore-toggle" aria-expanded="false">Číst více</button>
-            <p style="margin-top:8px;"><a class="btn ghost" href="https://mapy.com/cs/turisticka?vlastni-body&x=14.4839039&y=50.8337739&z=17&ut=Křížový%20Buk&ut=Rezervace%20s%20měsíčnicí&ut=Trajek%20-%20po%20modré%20do%20kopce&ut=Odbočka%20na%20Zlatý%20vrch%20-%20čedičové%20varhany&uc=9hLH4xaI-0d5JhWNfZQhgrf8jCLV93jHfUne3sgjGe6xfcgeqSiMgjU9" target="_blank" rel="noopener">Otevřít trasu na Mapy.cz</a></p>
-          </article>
-
-          <article class="trip-detail" id="kyjovsky-hrad">
-            <h3>Nahoru dolu ke Kyjovskému hradu</h3>
-            <p class="bigtext">Krátká, strmější trasa s mnoha vyhlídkami a zajímavými skalními útvary. Ideální na odpolední výlet.</p>
-            <figure class="trip-photo"><img src="kyjov1.jpg" alt="Kyjovský hrad a okolí"></figure>
-            <div class="readmore collapsed">
-Z parkoviště v Kyjově (1) stoupáme po silnici a Koglerově stezce mezi domky (2). Trasa vede přes vyhlídky až ke Kyjovskému hradu a poté sestupem do údolí (3) k zajímavé Klenotnici (4). Následuje návrat podél Křinice zpět do Kyjova (5–6). Krátký, atraktivní okruh.
-            </div>
-            <button class="readmore-toggle" aria-expanded="false">Číst více</button>
-            <p style="margin-top:8px;"><a class="btn ghost" href="https://mapy.com/cs/turisticka?vlastni-body&x=14.4555824&y=50.9113291&z=16&ut=Parkoviště%20Kyjov&ut=Odbočk%20ze%20silnice&ut=Odbočka%20ke%20Klenotnici&ut=Klenotnice&uc=9hGpGxahR4fm9fAEeKnfkVfZ8fTAgYngvp5Hggnc" target="_blank" rel="noopener">Otevřít trasu na Mapy.cz</a></p>
-          </article>
-
-          <article class="trip-detail" id="vlci-hora-kyjov-dlouhy-dul">
-            <h3>Z Vlčí Hory do Kyjova a Dlouhého Dolu</h3>
-            <p class="bigtext">Kombinace chaloupek, lesních stezek a delšího klesání do Kyjova. Přibližně 8 km / 2 hodiny.</p>
-            <figure class="trip-photo"><img src="vlk1.jpg" alt="Z Vlčí Hory do Kyjova a Dlouhého Dolu"></figure>
-            <div class="readmore collapsed">
-Start u Restaurace ve Vlčí Hoře (1). Po žluté a Koglerově stezce (2) mezi chaloupkami, dále lesem (3–4) k Malému Vlčímu potoku. Následuje výstup k pramínku (5) a pokračování po neznačené cestě na asfaltku (6). Dlouhé klesání do Kyjova (7) a návrat přes chaloupky a kozí farmu zpět na hlavní (8). Trasa cca 2 hodiny, 8 km.
-            </div>
-            <button class="readmore-toggle" aria-expanded="false">Číst více</button>
-            <p style="margin-top:8px;"><a class="btn ghost" href="https://mapy.com/cs/turisticka?vlastni-body&x=14.4594877&y=50.9228008&z=15&ut=Start%20a%20parkoviště%20u%20retaurace&ut=Odbočka%20na%20žlutou%20a%20Koglerovu%20stezku&ut=Do%20lesa&ut=Do%20kopce&ut=Pramínek%20a%20možné%20odbočení%20na%20Vlčí%20hrádek&uc=9hHO0xamnZfa1Uwf4GQdf20f2Mf60e3cgeneTC5w0ewG29jYk" target="_blank" rel="noopener">Otevřít trasu na Mapy.cz</a></p>
-          </article>
-
         </div>
-      </div>
-    </section>
-
-    <section id="kontakt">
-      <div class="wrap">
-        <h2>Kontakt</h2>
-        <div class="card">
-          <p><strong>V co nejkratší době Vás budeme kontaktovat zpět i telefonicky.</strong></p>
-          <p>V případě zájmu zašlete email na adresu <a href="mailto:chalupa-chribska@seznam.cz">chalupa-chribska@seznam.cz</a>.</p>
-          <a class="contact-map" href="https://mapy.com/cs/zakladni?source=addr&id=11287185&pid=46927655&newest=0&yaw=2.060&fov=1.570&pitch=-0.098&x=14.4953042&y=50.8692222&z=17" target="_blank" rel="noopener">
-            <img src="kontakty.jpg" alt="Otevřít mapu polohy chalupy (nová karta)">
-          </a>
-        </div>
-        <noscript><p class="sr-only">Prohlížeč má vypnutý JavaScript — karusely obrázků se nebudou otáčet automaticky.</p></noscript>
       </div>
     </section>
   </main>
-
+  
   <footer>
-    <div class="foot">Chalupa-Chřibská 2026 všechny práva vyhrazena</div>
+    <div class="foot">
+      <p>&copy; 2026 Chalupa Chřibská</p>
+    </div>
   </footer>
 
-<script>
-    // Ticker recenzí – bezešvá nekonečná smyčka, tablet i myš
-    (function () {
-      const track = document.getElementById('tickerTrack');
-      const outer = document.getElementById('tickerOuter');
-      if (!track || !outer) return;
+  <script>
+    // ----------------------------------------------------
+    //  UI - Tmavý motiv a modální okna
+    // ----------------------------------------------------
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      themeToggle.classList.toggle('active', !isDark);
+    });
 
-      let half = 0, pos = 0;
-      let paused = false;
-      let dragging = false, dragMoved = false;
-      let dragStartX = 0, dragStartPos = 0;
-      let tStartX = 0, tStartY = 0, tHoriz = null;
-      let resizeTimer, started = false;
-
-      const SPEED = 0.5;
-
-      /* Přesný bod přeskoku: vzdálenost od začátku karty 0 k začátku karty 6 (duplicát) */
-      function measureHalf() {
-        const cards = track.querySelectorAll('.review-card');
-        if (!cards.length) return;
-        const w = cards[0].getBoundingClientRect().width;
-        if (w === 0) return;                                     // layout ještě není hotový
-        const n   = cards.length / 2;
-        const gap = parseFloat(getComputedStyle(track).columnGap) || 16;
-        half = n * (w + gap);                                    // = 6 × (320 + 16) = 2016 px
-      }
-
-      function step() {
-        if (!dragging && !paused && half > 0) {
-          pos += SPEED;
-          if (pos >= half) pos -= half;                          // bezešvý skok
-        }
-        track.style.transform = `translateX(${-pos}px)`;
-        requestAnimationFrame(step);
-      }
-
-      function boot() {
-        if (started) return;
-        measureHalf();
-        if (half === 0) { setTimeout(boot, 100); return; }      // počkat na layout
-        started = true;
-        requestAnimationFrame(step);
-      }
-
-      if (document.readyState === 'complete') {
-        requestAnimationFrame(() => requestAnimationFrame(boot));
-      } else {
-        window.addEventListener('load', () => requestAnimationFrame(() => requestAnimationFrame(boot)));
-      }
-
-      /* Přepočet při otočení tabletu / resize okna */
-      window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-          const old = half;
-          measureHalf();
-          if (old > 0 && half > 0) pos = (pos / old) * half;   // zachovat proporcionální pozici
-        }, 200);
+    const tripsOverlay = document.getElementById('tripsOverlay');
+    const openTrips = document.getElementById('openTrips');
+    const closeTrips = document.getElementById('closeTrips');
+    
+    if(openTrips && tripsOverlay) {
+      openTrips.addEventListener('click', (e) => {
+        e.preventDefault();
+        tripsOverlay.classList.add('active');
       });
+      closeTrips.addEventListener('click', () => {
+        tripsOverlay.classList.remove('active');
+      });
+    }
 
-      outer.addEventListener('mouseenter', () => { paused = true;  });
-      outer.addEventListener('mouseleave', () => { paused = false; });
-      outer.addEventListener('focusin',    () => { paused = true;  });
-      outer.addEventListener('focusout',   () => { paused = false; });
+    // ----------------------------------------------------
+    //  JS Ticker - Oprava dotykového ovládání a přesnosti
+    // ----------------------------------------------------
+    const track = document.getElementById('tickerTrack');
+    let isDragging = false;
+    let startX = 0, startY = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let isVerticalScroll = false;
+    let firstMove = false;
+    let loopWidth = 0;
+    let speed = 0.6; // Rychlost automatického posuvu
+    let animationId;
 
-      function dragStart(x) {
-        dragging = true; dragMoved = false;
-        dragStartX = x; dragStartPos = pos;
-        outer.classList.add('grabbing');
+    // 1. Získáme ABSOLUTNĚ PŘESNOU šířku poloviny karet (řeší problém 11 vs 12 mezer)
+    function calculateLoopWidth() {
+      const cards = track.children;
+      if (cards.length < 2) return 0;
+      const halfCount = Math.floor(cards.length / 2);
+      
+      const firstCardRect = cards[0].getBoundingClientRect();
+      const midCardRect = cards[halfCount].getBoundingClientRect();
+      
+      // Vzdálenost od levého okraje první karty k levému okraji první naklonované karty
+      return midCardRect.left - firstCardRect.left;
+    }
+
+    function updateTransform() {
+      track.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    // 2. Bezešvé napojení smyčky
+    function checkLoop() {
+      if (loopWidth === 0) loopWidth = calculateLoopWidth();
+      
+      // Pokud dojedeme za první sadu karet, přesuneme se plynule zpět
+      if (currentTranslate <= -loopWidth) {
+        currentTranslate += loopWidth;
+        prevTranslate += loopWidth; // Musíme upravit i referenci pro dragging
       }
-      function dragMove(x) {
-        if (!dragging || !half) return;
-        const d = dragStartX - x;
-        if (Math.abs(d) > 3) dragMoved = true;
-        pos = ((dragStartPos + d) % half + half) % half;        // plynulé obtočení
+      
+      // Pokud uživatel táhne doleva do plusu, skočíme o smyčku zpět
+      if (currentTranslate > 0) {
+        currentTranslate -= loopWidth;
+        prevTranslate -= loopWidth;
       }
-      function dragEnd() {
-        dragging = false;
-        outer.classList.remove('grabbing');
+    }
+
+    // 3. Engine pro nekonečný posuv
+    function autoScroll() {
+      if (!isDragging) {
+        currentTranslate -= speed;
+        checkLoop();
+        updateTransform();
       }
+      animationId = requestAnimationFrame(autoScroll);
+    }
 
-      /* Touch: nejdřív zjisti, jestli jde o vodorovný drag nebo svislý scroll stránky */
-      outer.addEventListener('touchstart', e => {
-        tStartX = e.touches[0].clientX;
-        tStartY = e.touches[0].clientY;
-        tHoriz = null; dragMoved = false;
-      }, { passive: true });
+    // -- Handlery pro myš i dotyk --
 
-      outer.addEventListener('touchmove', e => {
-        const dx = e.touches[0].clientX - tStartX;
-        const dy = e.touches[0].clientY - tStartY;
-        if (tHoriz === null) {
-          if      (Math.abs(dx) > Math.abs(dy) + 4) { tHoriz = true;  dragStart(tStartX); }
-          else if (Math.abs(dy) > Math.abs(dx) + 4) { tHoriz = false; }   // scroll → nerušit
+    function handleStart(e) {
+      // Ignorovat, pokud se klikne na odkaz
+      if (e.target.tagName.toLowerCase() === 'a') return;
+
+      isDragging = true;
+      firstMove = true;
+      isVerticalScroll = false;
+      
+      const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+      const clientY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+      
+      startX = clientX;
+      startY = clientY;
+      prevTranslate = currentTranslate;
+      
+      track.style.cursor = 'grabbing';
+    }
+
+    function handleMove(e) {
+      if (!isDragging) return;
+      
+      const clientX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+      const clientY = e.type.includes('mouse') ? e.clientY : e.touches[0].clientY;
+      
+      const dx = clientX - startX;
+      const dy = clientY - startY;
+      
+      // 4. Detekce směru - je to swajp do strany, nebo se snaží scrollovat stránku?
+      if (firstMove) {
+        firstMove = false;
+        // Pokud je vertikální pohyb větší než horizontální, jde o běžný scroll stránky
+        if (Math.abs(dy) > Math.abs(dx)) {
+          isVerticalScroll = true;
         }
-        if (tHoriz) dragMove(e.touches[0].clientX);
-      }, { passive: true });
+      }
+      
+      // Pokud uživatel scrolluje dolů, nezasahujeme do toho a neposouváme ticker
+      if (isVerticalScroll) return; 
+      
+      // Při horizontálním swajpu zablokujeme nechtěné poskočení stránky
+      if (e.cancelable) e.preventDefault();
+      
+      currentTranslate = prevTranslate + dx;
+      checkLoop();
+      updateTransform();
+    }
 
-      outer.addEventListener('touchend', () => {
-        if (tHoriz) dragEnd();
-        tHoriz = null;
-      }, { passive: true });
+    // 5. Oprava touchcancel - Přidán i touchcancel, ukončíme dragging korektně
+    function handleEnd() {
+      isDragging = false;
+      track.style.cursor = 'pointer';
+    }
 
-      /* Myš */
-      outer.addEventListener('mousedown', e => { dragStart(e.clientX); e.preventDefault(); });
-      window.addEventListener('mousemove', e => { dragMove(e.clientX); });
-      window.addEventListener('mouseup',   () => { dragEnd(); });
+    // Registrace eventů (pro mobilní prohlížeče je klíčové passive: false na touchmove)
+    track.addEventListener('mousedown', handleStart);
+    window.addEventListener('mousemove', handleMove);
+    window.addEventListener('mouseup', handleEnd);
 
-      outer.addEventListener('click', e => { if (dragMoved) e.preventDefault(); }, true);
-    })();
-</script>
+    track.addEventListener('touchstart', handleStart, { passive: true });
+    track.addEventListener('touchmove', handleMove, { passive: false });
+    track.addEventListener('touchend', handleEnd);
+    track.addEventListener('touchcancel', handleEnd); // OPRAVA IOS BUGU
+
+    // Zastavení při najetí myši na PC
+    track.addEventListener('mouseenter', () => speed = 0);
+    track.addEventListener('mouseleave', () => speed = 0.6);
+
+    // Přepočítání mezer při otočení tabletu na šířku
+    window.addEventListener('resize', () => {
+      loopWidth = calculateLoopWidth();
+      checkLoop();
+    });
+
+    // Start!
+    window.addEventListener('load', () => {
+      loopWidth = calculateLoopWidth();
+      autoScroll();
+    });
+  </script>
 </body>
 </html>
