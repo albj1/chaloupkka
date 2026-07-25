@@ -210,7 +210,6 @@
 
     .ticker-outer{
       position:relative; width:100%; overflow:hidden;
-      /* fade edges */
       -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
       mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
     }
@@ -220,12 +219,13 @@
     }
     .ticker-track.paused{ animation-play-state: paused; }
     @keyframes ticker-scroll{
-  0%  { transform: translateX(0); }
-  100%{ transform: translateX(-50%); }
-}
+      0%  { transform: translateX(0); }
+      100%{ transform: translateX(-50%); }
+    }
 
     .review-card{
       flex: 0 0 320px;
+      flex-shrink: 0;
       background:var(--card); border:1px solid var(--glass-b); border-radius:var(--radius);
       padding:20px 20px 16px; box-shadow:var(--shadow);
       display:flex; flex-direction:column; gap:10px;
@@ -269,7 +269,6 @@
 </head>
 <body>
 
-  <!-- NAV (Okolí odstraněno) -->
   <nav class="nav" aria-label="Hlavní navigace">
     <a href="#" class="brand">Chalupa Chřibská</a>
     <a href="#info">Informace</a>
@@ -285,7 +284,6 @@
     </button>
   </nav>
 
-  <!-- HERO -->
   <header class="hero" role="banner">
     <video id="bgVideo" autoplay muted loop playsinline preload="auto" poster="poster.jpg">
       <source src="video chalupa.mp4" type="video/mp4" />
@@ -320,7 +318,6 @@
   </header>
 
   <main>
-    <!-- Recenze -->
     <section id="recenze">
       <div class="wrap-head">
         <h2>Co říkají hosté</h2>
@@ -452,11 +449,10 @@
             </div>
           </a>
 
-        </div><!-- /ticker-track -->
-      </div><!-- /ticker-outer -->
+        </div>
+      </div>
     </section>
 
-    <!-- Info -->
     <section id="info">
       <div class="wrap">
         <h2>Základní informace</h2>
@@ -466,7 +462,7 @@
             <div class="list">
               <div><b>Přízemí:</b> společenská místnost/obývák, kuchyň, ložnice, chodba, koupelna a samostatné WC</div>
               <div><b>Terasa:</b> venkovní posezení</div>
-              </div>
+            </div>
           </div>
           <div class="card">
             <h3>Vybavení</h3>
@@ -486,7 +482,6 @@
           </div>
         </div>
 
-        <!-- Galerie -->
         <div class="carousel" id="carousel" aria-label="Fotogalerie chalupy">
           <button class="arrow prev" aria-label="Předchozí fotografie">‹</button>
           <img id="carousel-img" src="imagesgal1.jpg" alt="Fotka chalupy – 1/13" loading="eager">
@@ -495,7 +490,6 @@
       </div>
     </section>
 
-    <!-- Ceník -->
     <section id="cenik">
       <div class="wrap">
         <h2>Ceník</h2>
@@ -548,7 +542,7 @@
           <div class="card">
             <h3>Obsazené termíny</h3>
             <div class="list">
-              <div><b>Prázdniny&nbsp;2026:</b> Celé obsazené. </div>
+              <div><b>Prázdniny&nbsp;2026:</b> Celé obsazené.</div>
               <div>Další termíny dle aktuální domluvy.</div>
             </div>
           </div>
@@ -571,7 +565,6 @@
       </div>
     </section>
 
-    <!-- Přehled výletů na homepage (přejmenované z "Okolí") -->
     <section id="vylet-index">
       <div class="wrap">
         <h2>Výlety</h2>
@@ -589,7 +582,6 @@
       </div>
     </section>
 
-    <!-- === Výlety: overlay === -->
     <section id="tripsOverlay" class="trips-overlay" aria-hidden="true" role="dialog" aria-labelledby="tripsTitle">
       <div class="trips-head">
         <h2 id="tripsTitle" class="trips-title">Výlety — Zajímavosti v okolí</h2>
@@ -598,101 +590,80 @@
       <div class="trips-body">
         <div class="trips-wrap">
 
-          <!-- Doubice -->
           <article class="trip-detail" id="doubice">
             <h3>Výlet do Doubice — rodinná pohodovka</h3>
             <p class="bigtext">Jednoduchá procházka z chalupy do Doubice. Louky, rybníček a dětské hřiště u Staré hospody. ~1 h 15 min se zastávkami.</p>
             <figure class="trip-photo"><img src="doubice.jpg" alt="Doubice"></figure>
-
             <div class="readmore collapsed">
 Cílem cesty se stala Stará Hospoda v Doubici, kde se mohou vyřádit naše pořád energií nabité děti. Od chalupy jsme se vydali dolů pár metrů po silnici směrem k odbočce (1). Zde jsme sešli na málo frekventovanou silnici mezi starými domky, chatkami a pensionem Braun. Kousek za pensionem mezi domky silnice odbočuje vlevo (2). Prošli jsme kolem malého rybníčka na pravé straně a pomalu přišli k dřevěnému rozcestníku, kde jedna šipka ukazuje někam na Doubici (3). Přesně podle šipky jsme se vydaly do štěrkové cestě do kopce směřující k oplocené chaloupce a zde také cesta končí (4). Vydali jsme se kolem plotu (5) a došli na louku nad zahradou. Zde jsme po vyšlapané cestičce přišli na pomalu se objevující začátek cesty (6), která vede až na silnici. Okolo bodu (7) jsme sešli z cesty směrem vlevo nahoru po vyšlapané cestě a prošli jsme mezi chalupami až na silnici (8). Pokud nesejdete, cesta se za nedlouho napojí na silnici také. Pak už jen krásným lesem po silnici až do Doubice. Cestu jsme si ještě zkrátili přes louku na turistické odbočce ke kapličce v poli (9) a už jsme byli u cíle. Děti si spokojeně hrály v parku a my popíjeli kafíčko. Celá cesta se zastávkami trvala přibližně 1 h 15 min.
             </div>
             <button class="readmore-toggle" aria-expanded="false">Číst více</button>
-
             <p style="margin-top:8px;"><a class="btn ghost" href="https://mapy.com/cs/turisticka?vlastni-body&x=14.4606114&y=50.8861923&z=17&ut=Rozcestí%20z%20hlavní%20silnice&ut=Rozcestí%20mezi%20baráčky&ut=Rozcestí%20u%20dřevěného%20rozcestníku&ut=Podél%20plotu%20chaloupky&ut=Podél%20plotu%20chaloupky&ut=Přes%20louku%20na%20vznikající%20cestu&ut=Nahoru%20mezi%20chaloupky%20nebo%20po%20cestě%20na%20silnici&ut=Silnice%20Rybniště%20-%20Doubice&ut=Odbočka%20ke%20kapličce&ut=Přes%20louku%20k%20dřevěným%20sochám&uc=9hLeAxa8ddg-8hK4SNghAfjJW0NNSpg6NgR7g8g-hIXgYAaC9iJvfXdhAO&ud=50°52%275.767&quot;" target="_blank" rel="noopener">Otevřít trasu na Mapy.cz</a></p>
           </article>
 
-          <!-- Plešivec -->
           <article class="trip-detail" id="plesivec">
             <h3>Výlet okolo Plešivce</h3>
             <p class="bigtext">Okružní trasa v okolí chalupy přes Malý Semerink a vyhlídky. Přibližně 10 km, ideální pro rodiny i středně zdatné turisty.</p>
             <figure class="trip-photo"><img src="krajina.jpg" alt="Plešivec a okolí"></figure>
-
             <div class="readmore collapsed">
 Okružní trasa začíná u chalupy a vede po silnici ke Chřibské. Za prvním domem odbočka vlevo (1), kolem domků a dolů ke koupališti (2). Pěšina za koupalištěm se napojuje na asfalt (3), dále přes žlutou značku mezi loukami (4). Stoupání vede k historickému střeleckému terči (5) a pak po vrstevnici k vyhlídce s lavičkou (7). Cesta se napojí zpět na žlutou (8), pokračuje na Malý Semerink (9) s možností občerstvení a vede přes silnici směrem na Rybniště (10). Poté lesními cestami k chalupě (11–15). Celkem cca 10 km.
             </div>
             <button class="readmore-toggle" aria-expanded="false">Číst více</button>
-
             <p style="margin-top:8px;"><a class="btn ghost" href="https://mapy.com/cs/turisticka?vlastni-body&x=14.4856909&y=50.8687538&z=14&ut=Odbočka%20z%20hlavní%20silnice&ut=Odbočka%20na%20koupaliště&ut=Zase%20na%20silnici&ut=Odbočka%20vlevo%20mezi%20louky%20po%20žluté&ut=Střelecký%20terč&ut=Odbočka%20po%20vrstevnici&ut=Zde%20pomalu%20končí%20cesta&ut=Asi%20tady%20někde%20jsme%20se%20napojili%20zpět%20na%20žlutou&ut=Malý%20Semerink&ut=Po%20červené%20vlevo&ut=Zde%20sejít%20z%20červené%20a%20pokračovat%20vlevo%20podél%20silnice&ut=Odbočka%20ze%20silnice%20na%20Doubici&ut=Pomalý%20konec%20cesty%2C%20sejít%20po%20louce&ut=Už%20zase%20na%20asfaltu&ut=Zpět%20na%20hlavní%20k%20chaloupce&uc=9hKvBxaTBbYNGWflGfhvfAg4Rh4GfgRhV0f45gzGgsPhSngZw5D0h7YgrnJKdq8i5ne-1fkcfInfREN0f-1fX1eBW" target="_blank" rel="noopener">Otevřít trasu na Mapy.cz</a></p>
           </article>
 
-          <!-- Jedlová -->
           <article class="trip-detail" id="jedlova">
             <h3>Výlet v okolí Jedlové</h3>
             <p class="bigtext">Okruh z Jiřetína přes Křížovou horu a Jedlovou, krásné výhledy a možnost občerstvení. ~10 km.</p>
             <figure class="trip-photo"><img src="jiretin1.jpg" alt="Jedlová (Jiřetín)"></figure>
-
             <div class="readmore collapsed">
 Startujeme na náměstí v Jiřetíně (1). Po zelené nahoru na Křížovou horu (2) s výhledy. Pokračujeme po loukách k lesu (3) a po prudké sjezdovce (4) na Jedlovou. Cesta se stáčí kolem Jedlové a napojí se na asfalt (5). Sestupujeme z mírného kopce až k Ranči (6). Místo návratu po zelené pokračujeme po červené směrem pod Tolštejn, napojíme se na silnici (8) a jdeme zpět do Jiřetína (9–10). Výhledy, zmrzlina, cca 10 km.
             </div>
             <button class="readmore-toggle" aria-expanded="false">Číst více</button>
-
             <p style="margin-top:8px;"><a class="btn ghost" href="https://mapy.com/cs/turisticka?vlastni-body&x=14.5757397&y=50.8711282&z=16&l=1&ut=Náměstí&ut=Křížová%20hora&ut=Vstup%20do%20lesa&ut=Hurá%20po%20sjezdovce&ut=Konečně%20nejvyšší%20bod&ut=U%20Ranče&ut=Na%20silnici%20pod%20Tolštejnem&ut=Mírně%20vlevo&ut=Zpět%20na%20hlavní&uc=9hYEIxaVzffL8ePPfNgeHJKNeYke39eF65NGfZUhtngycf61kDFFNhcD" target="_blank" rel="noopener">Otevřít trasu na Mapy.cz</a></p>
           </article>
 
-          <!-- Sněžná -->
           <article class="trip-detail" id="snezna">
             <h3>Rododendrony Sněžná</h3>
             <p class="bigtext">Jarní procházka arboretem a zahradami se spoustou rododendronů. Krátká, voňavá trasa vhodná pro focení.</p>
             <figure class="trip-photo"><img src="arboretum16.jpg" alt="Rododendrony Sněžná"></figure>
-
             <div class="readmore collapsed">
 Provoněný jarní výlet směřuje do nedaleké Sněžné, kde v květnu a začátkem června kvete nespočet rododendronů. Parkujeme u kapličky (1–2) a projdeme vstupem do arboreta. Krátká trasa, ideální pro rodiny a fotografy.
             </div>
             <button class="readmore-toggle" aria-expanded="false">Číst více</button>
-
             <p style="margin-top:8px;"><a class="btn ghost" href="https://mapy.com/cs/zakladni?vlastni-body&x=14.4794085&y=50.9235309&z=16&ut=Rozcestí%20u%20kapličky&ut=Vchod%20do%20arboreta&uc=9hI8exak2cT1ecL" target="_blank" rel="noopener">Otevřít trasu na Mapy.cz</a></p>
           </article>
 
-          <!-- Varhany -->
           <article class="trip-detail" id="varhany">
             <h3>Měsíčnice & čedičové varhany (Zlatý vrch)</h3>
             <p class="bigtext">Výlet k vzácné měsíčnici a k monumentálním čedičovým varhanám—výborné v květnu. ~8 km.</p>
             <figure class="trip-photo"><img src="varhany.jpg" alt="Zlatý vrch – čedičové varhany"></figure>
-
             <div class="readmore collapsed">
 Začínáme na Křížovém Buku (1). Přes asfaltovou lesní cestu dorazíme k oplocené rezervaci s měsíčnicí (2). Po prohlídce pokračujeme přes rozcestí Trajek (4), poté prudce po modré do kopce a po otevření lesa se naskytnou krásné výhledy (5). Pokračujeme na červenou, projdeme obcí Líska po červené až k odbočce na Zlatý vrch a čedičové varhany (7–8). Návrat po stejné trase.
             </div>
             <button class="readmore-toggle" aria-expanded="false">Číst více</button>
-
             <p style="margin-top:8px;"><a class="btn ghost" href="https://mapy.com/cs/turisticka?vlastni-body&x=14.4839039&y=50.8337739&z=17&ut=Křížový%20Buk&ut=Rezervace%20s%20měsíčnicí&ut=Trajek%20-%20po%20modré%20do%20kopce&ut=Odbočka%20na%20Zlatý%20vrch%20-%20čedičové%20varhany&uc=9hLH4xaI-0d5JhWNfZQhgrf8jCLV93jHfUne3sgjGe6xfcgeqSiMgjU9" target="_blank" rel="noopener">Otevřít trasu na Mapy.cz</a></p>
           </article>
 
-          <!-- Kyjovský hrad -->
           <article class="trip-detail" id="kyjovsky-hrad">
             <h3>Nahoru dolu ke Kyjovskému hradu</h3>
             <p class="bigtext">Krátká, strmější trasa s mnoha vyhlídkami a zajímavými skalními útvary. Ideální na odpolední výlet.</p>
             <figure class="trip-photo"><img src="kyjov1.jpg" alt="Kyjovský hrad a okolí"></figure>
-
             <div class="readmore collapsed">
 Z parkoviště v Kyjově (1) stoupáme po silnici a Koglerově stezce mezi domky (2). Trasa vede přes vyhlídky až ke Kyjovskému hradu a poté sestupem do údolí (3) k zajímavé Klenotnici (4). Následuje návrat podél Křinice zpět do Kyjova (5–6). Krátký, atraktivní okruh.
             </div>
             <button class="readmore-toggle" aria-expanded="false">Číst více</button>
-
             <p style="margin-top:8px;"><a class="btn ghost" href="https://mapy.com/cs/turisticka?vlastni-body&x=14.4555824&y=50.9113291&z=16&ut=Parkoviště%20Kyjov&ut=Odbočk%20ze%20silnice&ut=Odbočka%20ke%20Klenotnici&ut=Klenotnice&uc=9hGpGxahR4fm9fAEeKnfkVfZ8fTAgYngvp5Hggnc" target="_blank" rel="noopener">Otevřít trasu na Mapy.cz</a></p>
           </article>
 
-          <!-- Vlčí Hora → Kyjov → Dlouhý Důl -->
           <article class="trip-detail" id="vlci-hora-kyjov-dlouhy-dul">
             <h3>Z Vlčí Hory do Kyjova a Dlouhého Dolu</h3>
             <p class="bigtext">Kombinace chaloupek, lesních stezek a delšího klesání do Kyjova. Přibližně 8 km / 2 hodiny.</p>
             <figure class="trip-photo"><img src="vlk1.jpg" alt="Z Vlčí Hory do Kyjova a Dlouhého Dolu"></figure>
-
             <div class="readmore collapsed">
 Start u Restaurace ve Vlčí Hoře (1). Po žluté a Koglerově stezce (2) mezi chaloupkami, dále lesem (3–4) k Malému Vlčímu potoku. Následuje výstup k pramínku (5) a pokračování po neznačené cestě na asfaltku (6). Dlouhé klesání do Kyjova (7) a návrat přes chaloupky a kozí farmu zpět na hlavní (8). Trasa cca 2 hodiny, 8 km.
             </div>
             <button class="readmore-toggle" aria-expanded="false">Číst více</button>
-
             <p style="margin-top:8px;"><a class="btn ghost" href="https://mapy.com/cs/turisticka?vlastni-body&x=14.4594877&y=50.9228008&z=15&ut=Start%20a%20parkoviště%20u%20retaurace&ut=Odbočka%20na%20žlutou%20a%20Koglerovu%20stezku&ut=Do%20lesa&ut=Do%20kopce&ut=Pramínek%20a%20možné%20odbočení%20na%20Vlčí%20hrádek&uc=9hHO0xamnZfa1Uwf4GQdf20f2Mf60e3cgeneTC5w0ewG29jYk" target="_blank" rel="noopener">Otevřít trasu na Mapy.cz</a></p>
           </article>
 
@@ -700,7 +671,6 @@ Start u Restaurace ve Vlčí Hoře (1). Po žluté a Koglerově stezce (2) mezi 
       </div>
     </section>
 
-    <!-- Kontakt -->
     <section id="kontakt">
       <div class="wrap">
         <h2>Kontakt</h2>
@@ -781,20 +751,21 @@ Start u Restaurace ve Vlčí Hoře (1). Po žluté a Koglerově stezce (2) mezi 
       });
     })();
 
-    // Ticker recenzí – pauza při hover/focus
+    // Ticker recenzí – pauza při hover/focus, oprava touch bugu
     (function(){
       const track = document.getElementById('tickerTrack');
       const outer = document.getElementById('tickerOuter');
       if(!track || !outer) return;
+      let touchMoved = false;
       function pause(){ track.classList.add('paused'); }
       function play(){ track.classList.remove('paused'); }
       outer.addEventListener('mouseenter', pause);
       outer.addEventListener('mouseleave', play);
       outer.addEventListener('focusin', pause);
       outer.addEventListener('focusout', play);
-      // Touch – zastavit při dotyku, spustit po zvednutí
-      outer.addEventListener('touchstart', pause, {passive:true});
-      outer.addEventListener('touchend', ()=> setTimeout(play, 2000), {passive:true});
+      outer.addEventListener('touchstart', ()=>{ touchMoved = false; }, {passive:true});
+      outer.addEventListener('touchmove', ()=>{ touchMoved = true; pause(); }, {passive:true});
+      outer.addEventListener('touchend', ()=>{ if(!touchMoved) play(); else setTimeout(play, 2000); }, {passive:true});
     })();
 
     // Výlety overlay: otevřít, zavřít, cílený skok
